@@ -1,27 +1,22 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Router, Route, hashHistory, IndexRoute } from 'react-router';
+import App from './pages/App';
+import Home from './pages/Home';
+import Repos from './pages/Repos';
+import About from './pages/About';
+import User from './pages/User';
+import Contacts from './pages/Contacts';
 
-import TodoHeader from "./components/TodoHeader";
-import TodoList from "./components/TodoList";
+const app = document.getElementById('app');
 
-class App extends React.Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
-  render(){
-    return(
-      <div>
-        <TodoHeader/>
-        <TodoList/>
-      </div>
-    );
-  }
-}
-
-ReactDOM.render(<App/>, document.getElementById('app'));
+ReactDOM.render(
+  <Router history={hashHistory}>
+    <Route path="/" component={App}>
+      <IndexRoute component={Home} />
+    </Route>
+  </Router>
+  ,app);
 
 
 
